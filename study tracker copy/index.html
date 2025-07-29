@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>your cozy study tracker (beta)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <h1>🐾 Cozy Retro Study Tracker</h1>
+      <p class="quote">✨ "Stay cozy, stay focused!" ✨</p>
+    </div>
+    <div class="header-right">
+      <div id="clock">00:00 (IST)</div>
+      <button id="toggle-dark">🌙 / ☀️</button>
+    </div>
+  </header>
+
+  <div class="string-lights"></div>
+
+  <main id="content">
+    <div class="top-animal">
+      <img id="animal-img" src="dog.png" alt="Cute retro animal" />
+    </div>
+
+    <div class="middle-columns">
+      <section class="card">
+        <h2>📖 Lessons</h2>
+        <div class="input-group">
+          <input type="text" id="lesson-input" placeholder="Add new lesson">
+          <button onclick="addLesson()">Add</button>
+        </div>
+        <ul id="lesson-list" class="pretty-list"></ul>
+      </section>
+
+      <section class="card">
+        <h2>📝 Assignments</h2>
+        <div class="input-group">
+          <input type="text" id="assignment-input" placeholder="Add new assignment">
+          <button onclick="addAssignment()">Add</button>
+        </div>
+        <ul id="assignment-list" class="pretty-list"></ul>
+      </section>
+    </div>
+
+    <div class="bottom-timers">
+      <section id="pomodoro-card" class="card center">
+        <h2>🍅 Pomodoro Timer</h2>
+        <div class="input-group">
+          <label>Work:</label>
+          <input type="number" id="work-minutes" value="25" min="1"> min
+          <label>Break:</label>
+          <input type="number" id="break-minutes" value="5" min="1"> min
+          <label>Loops:</label>
+          <input type="number" id="pomodoro-loops" value="2" min="1"> 
+        </div>
+        <div class="circle-timer">
+          <svg viewBox="0 0 100 100">
+            <circle id="pomodoro-circle" cx="50" cy="50" r="45" />
+          </svg>
+          <div id="pomodoro-display">00:00</div>
+        </div>
+        <div class="button-row">
+          <button onclick="startPomodoro()">Start</button>
+          <button onclick="stopPomodoro()">Stop</button>
+          <button onclick="resetPomodoro()">Reset</button>
+          <button id="focus-toggle">Enter Focus Mode</button>
+        </div>
+      </section>
+
+      <section class="card center">
+        <h2>⏱ Timer</h2>
+        <div class="input-group">
+          <label>Time:</label>
+          <input type="number" id="timer-minutes" value="10" min="1"> min
+        </div>
+        <div class="circle-timer">
+          <svg viewBox="0 0 100 100">
+            <circle id="timer-circle" cx="50" cy="50" r="45" />
+          </svg>
+          <div id="simple-timer">00:00</div>
+        </div>
+        <div class="button-row">
+          <button onclick="startSimpleTimer()">Start</button>
+          <button onclick="stopSimpleTimer()">Stop</button>
+          <button onclick="resetSimpleTimer()">Reset</button>
+        </div>
+      </section>
+    </div>
+
+    <section class="feedback">
+      <h3>💌 Feedback</h3>
+      <textarea id="feedback-text" placeholder="Write your feedback..."></textarea>
+      <button onclick="sendFeedback()">Send</button>
+    </section>
+  </main>
+
+<script src="script.js"></script>
+</body>
+</html>
