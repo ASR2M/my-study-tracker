@@ -34,8 +34,12 @@ function renderList(){
   document.getElementById("assignment-list").innerHTML = assignments.map((v,i)=>
     `<li>${v}<button onclick="deleteItem(assignments,${i})">➖</button></li>`).join('');
 }
-function deleteItem(list, index){
-  list.splice(index,1); renderList();
+function deleteItem(list, index, id){
+  const li = document.getElementById(id);
+  const btn = li.querySelector('button');
+  btn.classList.add('spin');
+  li.classList.add('fade-out');
+  setTimeout(()=>{ list.splice(index,1); renderList(); }, 400);
 }
 
 document.getElementById("focus-toggle").onclick = () => {
