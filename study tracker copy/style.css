@@ -160,6 +160,10 @@ button:hover {
   background: #64748b;
 }
 
+.fade-out { 
+  opacity: 0; 
+  transform: translateY(-20px); 
+}
 .circle-timer {
   position: relative;
   width: 120px;
